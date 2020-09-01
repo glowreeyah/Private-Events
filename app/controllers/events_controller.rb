@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by_id(params[:id])
+    @invitation = Invitation.new
   end
 
   def create
