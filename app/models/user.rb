@@ -2,4 +2,11 @@ class User < ApplicationRecord
   has_many :created_events, foreign_key: 'creator', class_name: 'Event'
   has_many :invitations, foreign_key: :attendee_id
   has_many :attended_events, through: :invitations, source: :attended_event
+
+  def upcoming_events
+    Event.where('date > ?', Date.today) 
+  end
+  def previous_events
+    Event.where('date < ?', Date.today) 
+  end
 end
