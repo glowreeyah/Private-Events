@@ -1,10 +1,10 @@
-<h1>Users#show</h1>
-<p>This is the Show view for User</p>
+<h1>All events created by you</h1>
 
 <h2>Previously Created Events</h2>
 <% @past.each do |event| %>
   <%= event.name %>
 <% end %>
+
 <h2>Upcoming Created Events</h2>
 <% @future.each do |event| %>
   <%= event.name %>
