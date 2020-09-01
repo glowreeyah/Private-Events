@@ -6,9 +6,18 @@ class InvitationsController < ApplicationController
   def create
     @invitation = Invitation.new(invite_params)
     @invitation.attended_event_id = params[:event_id]
+    @user_id = params[:attendee_id]
+    @user = User.find_by(id: @user_id)
+    @event_attendees = @invitation.attendees
+    
+    if @event_attendees.include?(@user)
+      flash.niw[:notice] = 'User does not Exist'
+      render :new
+    else
+      redirect_to event_path(@invitation.attended_event_id)
+    end
 
-    @invitation.save
-
+    invitation.save
     redirect_to event_path(@invitation.attended_event_id)
   end
 

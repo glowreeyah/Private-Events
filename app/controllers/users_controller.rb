@@ -1,24 +1,24 @@
 class UsersController < ApplicationController
+  skip_before_action :authorized, only: %i[new create]
+  
   def new
     @user = User.new
-    @current_user = User.find_by_id(session[:current_user_id])
+    @current_user = current_user
   end
   
   def create
-    if @user = User.find_by(email: signup_params[:email])
+    @user = User.new(signup_params)
+    if @user.save
       session[:current_user_id] = @user.id
       redirect_to @user
     else
-    @user = User.new(signup_params)
-      if @user.save
-        session[:current_user_id] = @user.id
-        redirect_to @user
-      end
+      flash.now[:alert] = @user.error.full_messages
+      render.new
     end
   end
 
   def show
-    @current_user = User.find_by_id(session[:current_user_id])  
+    @current_user = current_user  
     @past = @current_user.created_events.past
     @future = @current_user.created_events.future
   end
