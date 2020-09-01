@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   resources :users, only: %i[new create show]
-  resources :events, only: %i[index new create show]
-  resources :invitations, only: %i[new create]
-
+  resources :events, only: %i[index new create show] do
+    resources :invitations, only: %i[new create]
+  end
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   get 'logout' => 'sessions#destroy'

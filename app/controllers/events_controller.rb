@@ -13,6 +13,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @current_user = current_user
     @event = Event.find_by_id(params[:id])
     @invitation = Invitation.new
   end
