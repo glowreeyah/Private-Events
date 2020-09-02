@@ -1,14 +1,13 @@
 class SessionsController < ApplicationController
   skip_before_action :authorized, only: %i[new create]
-  def new
-  end
+  def new; end
 
   def destroy
     session[:current_user_id] = nil
     redirect_to '/login'
   end
 
-  def create 
+  def create
     @user = User.find_by(email: params[:email])
     if @user
       session[:current_user_id] = @user.id

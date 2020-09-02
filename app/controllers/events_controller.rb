@@ -26,7 +26,7 @@ class EventsController < ApplicationController
     else
       flash.now[:alert] = @event.errors.full_messages
       render :new
-     end
+    end
   end
 
   private
