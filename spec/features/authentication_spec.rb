@@ -42,7 +42,7 @@ feature 'signing in as a non-existent user' do
   scenario 'does not show username on the homepage after signup' do
     expect(page).not_to have_content 'testing'
   end
-  
+
   scenario 'gives error of user not existing' do
     expect(page).to have_content 'User does not Exist'
   end

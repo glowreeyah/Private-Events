@@ -14,7 +14,7 @@ feature 'the event page' do
 
   scenario 'Can view all events on Event lists' do
     click_on '-- Events List --'
-    expect(page).to have_content "All Events"
+    expect(page).to have_content 'All Events'
   end
 
   scenario 'Can go to create new event page' do
