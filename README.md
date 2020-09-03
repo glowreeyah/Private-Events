@@ -4,6 +4,8 @@
 
 In this project, I implemented a site similar to Eventbrite which allows users to create events and then manage user signups. Users can create events and send invitations and invite other users. I also did unit tests using RSpec and Integration tests using Capybara. 
 
+![screenshot](private_events.gif)
+
 ## Built With
 
 - Ruby 2.6.5 and Rails 5.2.4.2 
