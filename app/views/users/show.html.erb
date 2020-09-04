@@ -2,18 +2,36 @@
 
 <h2>Previously Created Events</h2>
 <ul> 
-  <% @past.each do |event|%>
+  <% @past.each do | event | %>
     <li>
     <%= link_to event.name, event_path(event) %>
     </li>
-  <%end%>
+  <% end %>
 </ul>
 
 <h2>Upcoming Created Events</h2>
 <ul> 
-  <% @future.each do |event|%>
-    <li>
-    <%= link_to event.name, event_path(event) %>
-    </li>
-  <%end%>
+  <% @future.each do | event | %>
+  <li>
+  <%= link_to event.name, event_path(event) %>
+  </li>
+  <% end %>
 </ul>  
+
+<h1>Events you are attending</h1>
+
+<h2>Past Events</h2>
+<% current_user.attended_events.past.each do |event| %>
+  <strong><%= event.name%> created by: </strong>
+  <p><%= event.creator.name %></p>
+  <p><%= event.date %></p>
+  <p><%= link_to "Description", event_path(event.id) %></p>
+<% end %>
+
+<h2>Future Events</h2>
+<% current_user.attended_events.future.each do |event| %>
+  <strong><%= event.name %> created by: </strong>
+  <p><%= event.creator.name %></p>
+  <p><%= event.date %></p>
+  <p><%= link_to "Description", event_path(event.id) %></p>
+<% end %>
