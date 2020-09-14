@@ -1,0 +1,5 @@
+ <%= form_for [@event, @invitation] do |f|%>
+    <%=f.label "Please Enter the User's ID" %>
+    <%=f.text_field(:attendee_id) %>
+    <%=f.submit 'Invite' %>
+  <% end %>

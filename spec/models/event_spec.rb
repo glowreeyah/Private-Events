@@ -6,7 +6,7 @@ RSpec.describe Event, type: :model do
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:date) }
     it { should validate_uniqueness_of(:name) }
-    it { should validate_length_of(:name).is_at_least(3) }
+    it { should validate_length_of(:name).is_at_least(4) }
   end
   describe 'associations' do
     it { should have_many(:invitations).with_foreign_key(:attended_event_id) }
