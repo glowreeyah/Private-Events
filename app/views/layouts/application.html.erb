@@ -11,7 +11,12 @@
 
   <body>
      <nav>
-      <%= show_links%>
+
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg %>
+      <% end %>
+
+      <%= show_links %>
     </nav>
 
     <%= yield %>
