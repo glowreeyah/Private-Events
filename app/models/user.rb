@@ -5,7 +5,4 @@ class User < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true, length: { minimum: 4 }
   validates :email, presence: true, uniqueness: true, length: { minimum: 11 }
-
-  scope :past, -> { where('date < ?', Date.today) }
-  scope :future, -> { where('date >= ?', Date.today) }
 end
