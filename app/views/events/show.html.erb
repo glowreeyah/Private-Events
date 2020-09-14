@@ -1,0 +1,12 @@
+<h1>These are the attendees "<i><%= @event.name %></i>" event</h1>
+<ul>
+  <% @event.attendees.each do |attendee| %>
+    <li>
+      <%= attendee.name %>
+    </li>
+  <%end%>
+</ul>
+
+<% if is_creator? %>
+  <%= render 'invite', event: @event, invitation: @invitation %>
+<% end %>
