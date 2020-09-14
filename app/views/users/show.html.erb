@@ -21,7 +21,7 @@
 <h1>Events you are attending</h1>
 
 <h2>Past Events</h2>
-<% current_user.attended_events.past.each do |event| %>
+<% @past_events.each do |event| %>
   <strong><%= event.name%> created by: </strong>
   <p><%= event.creator.name %></p>
   <p><%= event.date %></p>
@@ -29,7 +29,7 @@
 <% end %>
 
 <h2>Future Events</h2>
-<% current_user.attended_events.future.each do |event| %>
+<% @future_events.each do |event| %>
   <strong><%= event.name %> created by: </strong>
   <p><%= event.creator.name %></p>
   <p><%= event.date %></p>

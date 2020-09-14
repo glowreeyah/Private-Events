@@ -21,6 +21,8 @@ class UsersController < ApplicationController
     @current_user = current_user
     @past = @current_user.created_events.past
     @future = @current_user.created_events.future
+    @past_events = current_user.attended_events.past
+    @future_events = current_user.attended_events.future
   end
 
   private
